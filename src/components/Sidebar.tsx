@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { ColorThemeSelector } from "@/components/ColorThemeSelector";
 import {
   Building2,
   LayoutDashboard,
@@ -157,9 +159,9 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-sidebar-border p-4">
+      <div className="border-t border-glass p-4">
         {!collapsed && (
-          <div className="mb-4 p-3 bg-sidebar-accent/30 rounded-lg">
+          <div className="mb-4 p-3 bg-glass-accent/30 rounded-lg backdrop-blur-glass-sm border border-glass-highlight">
             <div className="flex items-center gap-3 mb-2">
               <div className="bg-gradient-primary p-1.5 rounded-full">
                 <Shield className="h-3 w-3 text-primary-foreground" />
@@ -171,6 +173,19 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
             </div>
           </div>
         )}
+        
+        {/* Theme Controls */}
+        <div className="flex items-center gap-2 mb-4">
+          <ThemeToggle />
+          <ColorThemeSelector />
+          {collapsed && <div className="flex-1" />}
+          {!collapsed && (
+            <div className="flex-1 text-xs text-sidebar-foreground/60">
+              Themes
+            </div>
+          )}
+        </div>
+
         <Button
           variant="ghost"
           onClick={handleLogout}

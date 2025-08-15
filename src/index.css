@@ -105,6 +105,8 @@ All colors MUST be HSL.
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-hover: 210 40% 90%;
+    --primary-glow: 210 40% 85%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -114,6 +116,13 @@ All colors MUST be HSL.
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
+    --accent-glow: 217.2 32.6% 25%;
+
+    --success: 155 65% 55%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 35 100% 60%;
+    --warning-foreground: 35 100% 15%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -121,6 +130,7 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -129,6 +139,64 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark Glass Morphism */
+    --glass-bg: hsla(var(--background), 0.6);
+    --glass-border: hsla(var(--foreground), 0.15);
+    --glass-highlight: hsla(var(--foreground), 0.08);
+    --glass-card: hsla(var(--card), 0.5);
+    --glass-primary: hsla(var(--primary), 0.1);
+    --glass-accent: hsla(var(--accent), 0.15);
+  }
+
+  /* Theme variations */
+  .theme-blue {
+    --primary: 215 85% 25%;
+    --primary-glow: 215 85% 35%;
+    --accent: 45 100% 65%;
+    --accent-glow: 45 100% 75%;
+  }
+
+  .theme-purple {
+    --primary: 271 81% 56%;
+    --primary-glow: 271 81% 66%;
+    --accent: 280 100% 70%;
+    --accent-glow: 280 100% 80%;
+  }
+
+  .theme-green {
+    --primary: 142 76% 36%;
+    --primary-glow: 142 76% 46%;
+    --accent: 120 100% 65%;
+    --accent-glow: 120 100% 75%;
+  }
+
+  .theme-orange {
+    --primary: 24 74% 58%;
+    --primary-glow: 24 74% 68%;
+    --accent: 43 100% 65%;
+    --accent-glow: 43 100% 75%;
+  }
+
+  .dark.theme-purple {
+    --primary: 271 81% 66%;
+    --primary-glow: 271 81% 76%;
+    --accent: 280 100% 80%;
+    --accent-glow: 280 100% 90%;
+  }
+
+  .dark.theme-green {
+    --primary: 142 76% 46%;
+    --primary-glow: 142 76% 56%;
+    --accent: 120 100% 75%;
+    --accent-glow: 120 100% 85%;
+  }
+
+  .dark.theme-orange {
+    --primary: 24 74% 68%;
+    --primary-glow: 24 74% 78%;
+    --accent: 43 100% 75%;
+    --accent-glow: 43 100% 85%;
   }
 }
 
