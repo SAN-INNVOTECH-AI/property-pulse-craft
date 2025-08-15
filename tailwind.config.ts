@@ -80,11 +80,27 @@ export default {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-surface': 'var(--gradient-surface)'
 			},
+			backgroundColor: {
+				'glass': 'var(--glass-bg)',
+				'glass-card': 'var(--glass-card)',
+				'glass-primary': 'var(--glass-primary)',
+				'glass-accent': 'var(--glass-accent)',
+			},
+			borderColor: {
+				'glass': 'var(--glass-border)',
+				'glass-highlight': 'var(--glass-highlight)',
+			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
 				'medium': 'var(--shadow-medium)',
 				'large': 'var(--shadow-large)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'glass': 'var(--shadow-glass)'
+			},
+			backdropBlur: {
+				'glass': '20px',
+				'glass-sm': '12px',
+				'glass-lg': '32px',
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)',

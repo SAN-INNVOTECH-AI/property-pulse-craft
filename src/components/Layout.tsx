@@ -6,12 +6,12 @@ const Layout = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-gradient-surface">
       <Sidebar 
         collapsed={sidebarCollapsed} 
         onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} 
       />
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto backdrop-blur-glass-sm">
         <Outlet />
       </main>
     </div>

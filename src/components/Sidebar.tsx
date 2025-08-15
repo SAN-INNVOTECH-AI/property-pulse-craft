@@ -83,7 +83,7 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
   };
 
   return (
-    <div className={`bg-sidebar text-sidebar-foreground h-screen flex flex-col border-r border-sidebar-border transition-all duration-300 ${
+    <div className={`bg-sidebar/90 backdrop-blur-glass text-sidebar-foreground h-screen flex flex-col border-r border-glass transition-all duration-300 ${
       collapsed ? 'w-16' : 'w-64'
     }`}>
       {/* Header */}
