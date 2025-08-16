@@ -129,13 +129,13 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
                       key={itemIndex}
                       variant="ghost"
                       onClick={() => handleNavigation(item.path)}
-                      className={`w-full justify-start h-10 ${
+                      className={`w-full justify-start h-10 transition-all duration-200 ${
                         isActive 
-                          ? 'bg-sidebar-accent text-sidebar-accent-foreground' 
-                          : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+                          ? 'bg-primary/20 text-primary border border-primary/30 shadow-sm' 
+                          : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:border hover:border-primary/20'
                       } ${collapsed ? 'px-2' : 'px-3'}`}
                     >
-                      <item.icon className={`h-5 w-5 ${collapsed ? '' : 'mr-3'}`} />
+                      <item.icon className={`h-5 w-5 ${collapsed ? '' : 'mr-3'} ${isActive ? 'text-primary' : ''}`} />
                       {!collapsed && (
                         <>
                           <span className="flex-1 text-left">{item.label}</span>

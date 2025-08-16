@@ -14,6 +14,11 @@ import Towers from "./pages/Towers";
 import MilestonePlans from "./pages/MilestonePlans";
 import ProgressLogging from "./pages/ProgressLogging";
 import ScheduledDues from "./pages/ScheduledDues";
+import EmailTemplates from "./pages/EmailTemplates";
+import Documents from "./pages/Documents";
+import UsersAndRoles from "./pages/UsersAndRoles";
+import Reports from "./pages/Reports";
+import SettingsPage from "./pages/Settings";
 import Layout from "./components/Layout";
 import NotFound from "./pages/NotFound";
 
@@ -39,6 +44,11 @@ const App = () => (
             <Route path="progress" element={<ProgressLogging />} />
             <Route path="payments" element={<Payments />} />
             <Route path="dues" element={<ScheduledDues />} />
+            <Route path="emails" element={<EmailTemplates />} />
+            <Route path="documents" element={<Documents />} />
+            <Route path="users" element={<UsersAndRoles />} />
+            <Route path="reports" element={<Reports />} />
+            <Route path="settings" element={<SettingsPage />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
