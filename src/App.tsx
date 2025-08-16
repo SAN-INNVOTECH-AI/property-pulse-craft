@@ -9,6 +9,11 @@ import Projects from "./pages/Projects";
 import Units from "./pages/Units";
 import Customers from "./pages/Customers";
 import Payments from "./pages/Payments";
+import Analytics from "./pages/Analytics";
+import Towers from "./pages/Towers";
+import MilestonePlans from "./pages/MilestonePlans";
+import ProgressLogging from "./pages/ProgressLogging";
+import ScheduledDues from "./pages/ScheduledDues";
 import Layout from "./components/Layout";
 import NotFound from "./pages/NotFound";
 
@@ -25,10 +30,15 @@ const App = () => (
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="analytics" element={<Analytics />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="towers" element={<Towers />} />
             <Route path="units" element={<Units />} />
             <Route path="customers" element={<Customers />} />
+            <Route path="plans" element={<MilestonePlans />} />
+            <Route path="progress" element={<ProgressLogging />} />
             <Route path="payments" element={<Payments />} />
+            <Route path="dues" element={<ScheduledDues />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
