@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import UnitForm from "@/components/forms/UnitForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -29,6 +30,8 @@ const Units = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [projectFilter, setProjectFilter] = useState("all");
+  const [showUnitForm, setShowUnitForm] = useState(false);
+  const [editingUnit, setEditingUnit] = useState(null);
 
   const units = [
     {
@@ -177,7 +180,7 @@ const Units = () => {
           <h1 className="text-3xl font-bold text-foreground mb-2">Units</h1>
           <p className="text-muted-foreground">Manage property units across all your projects.</p>
         </div>
-        <Button variant="hero" size="lg" className="gap-2">
+        <Button variant="hero" size="lg" className="gap-2" onClick={() => setShowUnitForm(true)}>
           <Plus className="h-4 w-4" />
           Add Unit
         </Button>
@@ -399,7 +402,10 @@ const Units = () => {
                         <Button variant="ghost" size="icon" className="h-8 w-8">
                           <Eye className="h-4 w-4" />
                         </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => {
+                          setEditingUnit(unit);
+                          setShowUnitForm(true);
+                        }}>
                           <Edit className="h-4 w-4" />
                         </Button>
                         {unit.status === "AVAILABLE" && (
@@ -416,6 +422,16 @@ const Units = () => {
           </div>
         </CardContent>
       </Card>
+      
+      <UnitForm
+        open={showUnitForm}
+        onOpenChange={(open) => {
+          setShowUnitForm(open);
+          if (!open) setEditingUnit(null);
+        }}
+        mode={editingUnit ? "edit" : "create"}
+        unit={editingUnit}
+      />
     </div>
   );
 };

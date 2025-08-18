@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import ProjectForm from "@/components/forms/ProjectForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +27,8 @@ import {
 
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showProjectForm, setShowProjectForm] = useState(false);
+  const [editingProject, setEditingProject] = useState(null);
 
   const projects = [
     {
@@ -119,7 +122,7 @@ const Projects = () => {
           <h1 className="text-3xl font-bold text-foreground mb-2">Projects</h1>
           <p className="text-muted-foreground">Manage your real estate projects and their configurations.</p>
         </div>
-        <Button variant="hero" size="lg" className="gap-2">
+        <Button variant="hero" size="lg" className="gap-2" onClick={() => setShowProjectForm(true)}>
           <Plus className="h-4 w-4" />
           New Project
         </Button>
@@ -296,7 +299,10 @@ const Projects = () => {
                         <Button variant="ghost" size="icon" className="h-8 w-8">
                           <Eye className="h-4 w-4" />
                         </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => {
+                          setEditingProject(project);
+                          setShowProjectForm(true);
+                        }}>
                           <Edit className="h-4 w-4" />
                         </Button>
                         <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -311,6 +317,16 @@ const Projects = () => {
           </div>
         </CardContent>
       </Card>
+      
+      <ProjectForm
+        open={showProjectForm}
+        onOpenChange={(open) => {
+          setShowProjectForm(open);
+          if (!open) setEditingProject(null);
+        }}
+        mode={editingProject ? "edit" : "create"}
+        project={editingProject}
+      />
     </div>
   );
 };

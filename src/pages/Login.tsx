@@ -11,7 +11,7 @@ import heroImage from "@/assets/hero-building.jpg";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("admin@vmrealcon.com");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("Admin@123");
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();

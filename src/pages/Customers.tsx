@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import CustomerForm from "@/components/forms/CustomerForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -29,6 +30,8 @@ import {
 
 const Customers = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showCustomerForm, setShowCustomerForm] = useState(false);
+  const [editingCustomer, setEditingCustomer] = useState(null);
 
   const customers = [
     {
@@ -169,7 +172,7 @@ const Customers = () => {
           <h1 className="text-3xl font-bold text-foreground mb-2">Customers</h1>
           <p className="text-muted-foreground">Manage customer information and KYC verification.</p>
         </div>
-        <Button variant="hero" size="lg" className="gap-2">
+        <Button variant="hero" size="lg" className="gap-2" onClick={() => setShowCustomerForm(true)}>
           <Plus className="h-4 w-4" />
           Add Customer
         </Button>
@@ -379,7 +382,10 @@ const Customers = () => {
                         <Button variant="ghost" size="icon" className="h-8 w-8">
                           <Eye className="h-4 w-4" />
                         </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => {
+                          setEditingCustomer(customer);
+                          setShowCustomerForm(true);
+                        }}>
                           <Edit className="h-4 w-4" />
                         </Button>
                         {!customer.kycComplete && (
@@ -396,6 +402,16 @@ const Customers = () => {
           </div>
         </CardContent>
       </Card>
+      
+      <CustomerForm
+        open={showCustomerForm}
+        onOpenChange={(open) => {
+          setShowCustomerForm(open);
+          if (!open) setEditingCustomer(null);
+        }}
+        mode={editingCustomer ? "edit" : "create"}
+        customer={editingCustomer}
+      />
     </div>
   );
 };
